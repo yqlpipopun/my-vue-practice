@@ -23,12 +23,12 @@
 import { mapActions, mapGetters } from 'vuex'
 export default {
     async mounted() {
-        const response = await this.getSymbolList()
-        if (response) {
-            console.log({
-                response
-            })
-        }
+        await this.getSymbolList()
+        // if (response) {
+        //     console.log({
+        //         response
+        //     })
+        // }
     },
     computed: {
         ...mapGetters(["symbolListRes"])

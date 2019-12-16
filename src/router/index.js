@@ -22,6 +22,11 @@ const routes = [
         path: 'vuex',
         name: 'Vuex',
         component: () => import('@/views/Vuex.vue')
+      },
+      {
+        path: 'component',
+        name: '元件',
+        component: () => import('@/views/Component.vue')
       }
     ]
   },
