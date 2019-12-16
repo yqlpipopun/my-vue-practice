@@ -1,10 +1,9 @@
 <template>
     <div class="dropdown" :ref="`dropdown${name}`">
         <span class="dropdown__name">{{name}}</span>
-        {{currentName}}
         <select v-model="currentName" @change="mapOption($event)">
             <option v-if="placeholder">{{placeholder}}</option>
-            <option v-for="(item,index) in options" :key="index">{{item.name}}</option>
+            <option v-for="(item,index) in options" :key="index">{{item.text}}</option>
         </select>
     </div>
 </template>
@@ -12,7 +11,6 @@
 export default {
     data: () => ({
         widths: ['80px', '184px', '392px', '600px', '1224px'],
-        currentName: ""
     }),
     methods: {
         mapOption: function(e) {
@@ -41,21 +39,21 @@ export default {
             default: () => {
                 return [
                     {
-                        name: 'ex:選項1',
+                        text: 'ex:選項1',
                         value: '0',
                         click: function(e) {
                             return e
                         }
                     },
                     {
-                        name: 'ex:選項2',
+                        text: 'ex:選項2',
                         value: '1',
                         click: function(e) {
                             return e
                         }
                     },
                     {
-                        name: 'ex:選項3',
+                        text: 'ex:選項3',
                         value: '2',
                         click: function(e) {
                             return e
@@ -65,12 +63,24 @@ export default {
             }
         }
     },
-    watch: {
-        currentName(newValue) {
-            const currentOption = this.options.find((option) => {
-                return option.name === newValue
-            })
-            this.$emit('input', currentOption.value)
+    computed: {
+        currentName: {
+            get() {
+                let name = null
+                if (this.value && this.options.length) {
+                    const currentOption = this.options.find((option) => {
+                        return option.value === this.value
+                    })
+                    name = currentOption.text
+                }
+                return name
+            },
+            set(newValue) {
+                const currentOption = this.options.find((option) => {
+                    return option.text === newValue
+                })
+                this.$emit('input', currentOption.value)
+            }
         }
     },
     mounted() {
