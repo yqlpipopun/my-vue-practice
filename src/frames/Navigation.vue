@@ -5,7 +5,7 @@
             class="navbar navbar-expand-md navbar-dark bg-dark justify-content-start"
             aria-label="breadscrumb"
         >
-            <a class="navbar-brand js-scroll-trigger" @click="closeMenu" :href="`#/`">範例</a>
+            <a class="navbar-brand js-scroll-trigger" @click="closeMenu" :href="`#/`">Vue教學</a>
             <ol class="nav">
                 <li v-if="firstLayerRoute.name" class="nav-item">
                     <router-link
@@ -26,7 +26,7 @@
             </ol>
             <a
                 class="myNavigation__aboutMe"
-                href="https://chuiantw1212.github.io/my-material/"
+                href="https://deedoo.appspot.com/#/"
                 target="_blank"
             >
                 <img

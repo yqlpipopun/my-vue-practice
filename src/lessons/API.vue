@@ -24,11 +24,6 @@ import { mapActions, mapGetters } from 'vuex'
 export default {
     async mounted() {
         await this.getSymbolList()
-        // if (response) {
-        //     console.log({
-        //         response
-        //     })
-        // }
     },
     computed: {
         ...mapGetters(["symbolListRes"])

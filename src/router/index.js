@@ -7,27 +7,34 @@ const routes = [
   {
     path: '/',
     component: () => import('@/frames/FrameBasic.vue'),
+    redirect: { name: "vue總覽" },
     children: [
       {
-        path: '',
-        name: '總覽',
-        component: () => import('@/views/Home.vue')
+        path: 'vue',
+        component: () => import('@/views/Home.vue'),
+        children: [
+          {
+            path: 'overview',
+            name: 'vue總覽',
+            component: () => import('@/lessons/Overview.vue')
+          },
+          {
+            path: 'practice',
+            name: '練習',
+            component: () => import('@/lessons/Practice.vue'),
+          },
+          {
+            path: 'api',
+            name: 'API',
+            component: () => import('@/lessons/API.vue')
+          },
+          {
+            path: 'v-model',
+            name: 'v-model',
+            component: () => import('@/lessons/Vmodel.vue')
+          },
+        ]
       },
-      {
-        path: 'practice',
-        name: '練習',
-        component: () => import('@/views/Practice.vue'),
-      },
-      {
-        path: 'vuex',
-        name: 'Vuex',
-        component: () => import('@/views/Vuex.vue')
-      },
-      {
-        path: 'component',
-        name: '元件',
-        component: () => import('@/views/Component.vue')
-      }
     ]
   },
 ]

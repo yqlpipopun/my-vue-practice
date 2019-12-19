@@ -1,24 +1,21 @@
 <template>
-    <div class="home container py-4">
-        <ThemeGrid>
-            <router-link :to="{name:'Vuex'}">
-                <CardLogo class="home__card">
-                    <img src="https://storage.googleapis.com/deedoo-material/logoVue.png" />
-                    <h4>Vuex API (Symbol List)</h4>
-                </CardLogo>
-            </router-link>
-            <router-link :to="{name:'元件'}">
-                <CardLogo class="home__card">
-                    <img src="https://storage.googleapis.com/deedoo-material/logoVue.png" />
-                    <h4>使用元件 (Symbol List)</h4>
-                </CardLogo>
-            </router-link>
-            <router-link :to="{name:'練習'}">
-                <CardLogo class="home__card">
-                    <img src="https://storage.googleapis.com/deedoo-material/logoVue.png" />
-                    <h4>練習</h4>
-                </CardLogo>
-            </router-link>
-        </ThemeGrid>
+    <div class="container pt-4 pb-4">
+        <LessonGrid v-if="$route.name==='練習'" class="mb-3" :routeNames="routeNames"></LessonGrid>
+        <router-view />
+        <div v-if="$route.name!=='練習'">
+            <hr />
+            <LessonGrid class="mt-3" :routeNames="routeNames"></LessonGrid>
+        </div>
     </div>
 </template>
+<script>
+import LessonGrid from '@/components/LessonGrid.vue'
+export default {
+    data: () => ({
+        routeNames: ['練習', 'API', 'v-model']
+    }),
+    components: {
+        LessonGrid
+    },
+}
+</script>

@@ -23,6 +23,8 @@ import Row from '@/components/Row.vue'
 Vue.component('Row', Row)
 import ButtonWFP from '@/components/ButtonWFP.vue'
 Vue.component('ButtonWFP', ButtonWFP)
+import RowControl from '@/components/RowControl.vue'
+Vue.component('RowControl', RowControl)
 // Bootstrap
 import 'bootstrap'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
