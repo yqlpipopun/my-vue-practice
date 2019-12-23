@@ -10,8 +10,8 @@ Vue.component('CardLogo', CardLogo)
 import ThemeGrid from '@/components/ThemeGrid.vue'
 Vue.component('ThemeGrid', ThemeGrid)
 // Inputs
-import InputName from '@/components/input/InputName.vue'
-Vue.component('InputName', InputName)
+import InputEnName from '@/components/input/InputEnName.vue'
+Vue.component('InputEnName', InputEnName)
 import Dropdown from '@/components/Dropdown.vue'
 Vue.component('Dropdown', Dropdown)
 // Not classified yet

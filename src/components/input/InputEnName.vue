@@ -1,11 +1,13 @@
 <template>
-    <label :ref="`inputText${name}`" class="inputText">
-        <span class="inputText__name" :class="{'inputText__name--required': required}">{{name}}</span>
-        <input class="inputText__input" v-model="_value" />
+    <label :ref="`inputGroup${name}`" class="inputGroup">
+        <span class="inputGroup__name" :class="{'inputGroup__name--required': required}">{{name}}</span>
+        <input class="inputGroup__input" v-model="_value" />
     </label>
 </template>
 <script>
+import { widthMixins } from './_inputMixins'
 export default {
+    mixins: [widthMixins],
     props: {
         name: {
             type: String,
@@ -60,5 +62,5 @@ export default {
     }
 }
 </script>
-<style lang="scss" scoped src="./input.scss">
+<style lang="scss" scoped src="./_input.scss">
 </style>
