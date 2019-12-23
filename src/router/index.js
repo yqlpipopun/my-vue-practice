@@ -11,8 +11,13 @@ const routes = [
     children: [
       {
         path: 'vue',
-        component: () => import('@/views/Home.vue'),
+        component: () => import('@/lessons/_index.vue'),
         children: [
+          {
+            path: 'page-demo',
+            name: '示範頁面',
+            component: () => import('@/lessons/_MyPage.vue')
+          },
           {
             path: 'overview',
             name: 'vue總覽',

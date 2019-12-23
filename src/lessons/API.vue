@@ -1,35 +1,34 @@
 <template>
     <div>
         <h1>Vuex API示範</h1>
-        <table class="table mt-3">
+        <table class="table">
             <thead>
                 <tr>
-                    <td>Symbol</td>
-                    <td>Name</td>
-                    <td>Price</td>
+                    <th>symbol</th>
+                    <th>price</th>
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(row,index) in symbolListRes.symbolsList" :key="index">
-                    <td>{{row.symbol}}</td>
-                    <td>{{row.name}}</td>
-                    <td>{{row.price}}</td>
+                <tr v-for="(company, index) in companiesPriceList" :key="index">
+                    <td>{{company.symbol}}</td>
+                    <td>{{company.price}}</td>
                 </tr>
             </tbody>
         </table>
     </div>
 </template>
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions } from 'vuex'
 export default {
+    data: () => ({
+        companiesPriceList: []
+    }),
     async mounted() {
-        await this.getSymbolList()
-    },
-    computed: {
-        ...mapGetters(["symbolListRes"])
+        const response = await this.getBatchRequest(['AAPL', 'AMZN', 'FB', 'GOOG',])
+        this.companiesPriceList = response.companiesPriceList
     },
     methods: {
-        ...mapActions(["getSymbolList"])
+        ...mapActions(["getBatchRequest"])
     }
 }
 </script>

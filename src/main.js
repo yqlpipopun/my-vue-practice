@@ -28,6 +28,17 @@ Vue.component('RowControl', RowControl)
 // Bootstrap
 import 'bootstrap'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+// Hightlight JS
+import 'highlight.js/styles/vs2015.css';
+import hljs from 'highlight.js/lib/highlight';
+import xml from 'highlight.js/lib/languages/xml';
+hljs.registerLanguage('xml', xml)
+import css from 'highlight.js/lib/languages/css';
+hljs.registerLanguage('css', css)
+import scss from 'highlight.js/lib/languages/scss';
+hljs.registerLanguage('scss', scss)
+import javascript from 'highlight.js/lib/languages/javascript';
+hljs.registerLanguage('javascript', javascript)
 // productionTip
 Vue.config.productionTip = false
 

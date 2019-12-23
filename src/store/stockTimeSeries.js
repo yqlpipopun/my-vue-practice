@@ -4,6 +4,7 @@ import requestSync from './_vuexApi'
 
 const types = createTypes([
     "getSymbolList",
+    "getBatchRequest"
 ])
 
 const state = {
@@ -20,6 +21,18 @@ const actions = {
             url: '/company/stock/list',
         })
     },
+    getBatchRequest: async (store, symbols) => {
+        const formattedSymbol = symbols.reduce((pre, cur, index) => {
+            if (index == 0) {
+                return `${pre}`
+            } else {
+                return `${pre},${cur}`
+            }
+        })
+        return await requestSync(store, types.getBatchRequest, {
+            url: `/stock/real-time-price/${formattedSymbol}`
+        })
+    }
 }
 
 const mutations = {

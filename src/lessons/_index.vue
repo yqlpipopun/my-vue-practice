@@ -12,7 +12,7 @@
 import LessonGrid from '@/components/LessonGrid.vue'
 export default {
     data: () => ({
-        routeNames: ['練習', 'API', 'v-model']
+        routeNames: ['vue總覽', 'API', 'v-model', '示範頁面']
     }),
     components: {
         LessonGrid
