@@ -18,10 +18,20 @@
         width: 100%;
         padding: 0 8px;
     }
-    .inputGroup__icon {
+    .inputGroup__search {
         position: absolute;
         bottom: 8px;
         right: 8px;
         cursor: pointer;
+        background-color: unset;
+        border: none;
+        height: 16px;
+        .search__icon {
+            display: block;
+        }
+    }
+    .inputGroup__dialog {
+        position: fixed;
+        top: 50%;
     }
 }

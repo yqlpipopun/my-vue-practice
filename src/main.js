@@ -12,6 +12,10 @@ Vue.component('ThemeGrid', ThemeGrid)
 // Inputs
 import InputEnName from '@/components/input/InputEnName.vue'
 Vue.component('InputEnName', InputEnName)
+import InputSearcher from '@/components/input/InputSearcher/index.vue'
+Vue.component('InputSearcher', InputSearcher)
+import DialogTable from '@/components/DialogTable.vue'
+Vue.component('DialogTable', DialogTable)
 import Dropdown from '@/components/Dropdown.vue'
 Vue.component('Dropdown', Dropdown)
 // Not classified yet

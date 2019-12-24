@@ -1,8 +1,9 @@
 <template>
     <div>
         <Row>
-            <Dropdown v-model="stockSymbol" :name="'選擇股票代號'" :options="stockSymbols"></Dropdown>
-            <InputName v-model="stockSymbol" :name="'或自行輸入'"></InputName>
+            <InputSearcher v-model="stock.symbol" @click="searchSymbols()">
+                <DialogTable v-model="stock" :table="symbolsList" :name="'Searcher：基金代碼'"></DialogTable>
+            </InputSearcher>
         </Row>
         <Row>選擇股票代號： {{stockSymbol}}</Row>
         <Row>
@@ -47,17 +48,25 @@ export default {
             }
         ],
         stockSymbol: 'AAPL',
-        keyMetricsRes: []
+        keyMetricsRes: [],
+        stock: {},
+        symbolsList: [],
     }),
     methods: {
         async submitSymbol() {
+            // const response = await this.getBatchRequest(['AAPL', 'AMZN', 'FB', 'GOOG',])
             const response = await this.getKeyMetrics({
                 symbol: this.stockSymbol,
                 period: 'quarter'
             })
             this.keyMetricsRes = response.metrics
         },
-        ...mapActions(["getKeyMetrics",])
+        async searchSymbols() {
+            const response = await this.getSymbolList()
+            const symbolsList = response.symbolsList
+            this.symbolsList = symbolsList;
+        },
+        ...mapActions(["getKeyMetrics", "getSymbolList"])
     }
 }
 </script>

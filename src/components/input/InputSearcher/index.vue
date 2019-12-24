@@ -6,13 +6,21 @@
             :value="value"
             @input="$emit('input', $event.target.value)"
         />
-        <img class="inputGroup__icon" src="./magnifier-simple-line-icons.svg" />
+        <button class="inputGroup__search" @click="isShowDialog=true, $emit('click')">
+            <img class="search__icon" src="./magnifier-simple-line-icons.svg" />
+        </button>
+        <div v-if="isShowDialog">
+            <slot></slot>
+        </div>
     </div>
 </template>
 <script>
 import { widthMixins } from '../_inputMixins'
 export default {
     mixins: [widthMixins],
+    data: () => ({
+        isShowDialog: false
+    }),
     props: {
         name: {
             type: String,
@@ -35,6 +43,16 @@ export default {
         const targetWidth = this.widths[this.width]
         const inputLabel = this.$refs[`inputGroup${this.name}`]
         inputLabel.style.minWidth = targetWidth
+    },
+    watch: {
+        value: {
+            handler(newValue, oldValue) {
+                if (newValue !== oldValue) {
+                    this.isShowDialog = false
+                }
+            },
+            deep: true
+        }
     },
     methods: {
 
