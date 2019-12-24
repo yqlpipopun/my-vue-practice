@@ -1,6 +1,14 @@
 import axios from 'axios'
+import { setupCache } from 'axios-cache-adapter'
+const cache = setupCache({
+    maxAge: 15 * 60 * 1000
+})
 const baseURL = `${process.env.VUE_APP_BASE_URL}`
 axios.defaults.baseURL = baseURL
+const api = axios.create({
+    baseURL,
+    adapter: cache.adapter
+})
 
 function downloadErrorJSON(errorJSON, fileName) {
     /**
@@ -59,14 +67,14 @@ export default async function requestSync({ commit }, type, options) {
         method,
         params,
         data: dataCopy,
-        headers: mergedHeaders
+        headers: mergedHeaders,
     }
     /**
      * Send request
      */
     let axiosResponse = null
     try {
-        axiosResponse = await axios(axiosConfig)
+        axiosResponse = await api(axiosConfig)
         console.log({
             axiosResponse
         })
