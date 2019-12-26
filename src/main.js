@@ -2,6 +2,16 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+// Kendo UI
+import '@progress/kendo-ui'
+import '@progress/kendo-theme-default/dist/all.css'
+import { Grid, GridInstaller } from '@progress/kendo-grid-vue-wrapper'
+import { DropdownsInstaller } from '@progress/kendo-dropdowns-vue-wrapper'
+import { DataSourceInstaller } from '@progress/kendo-datasource-vue-wrapper'
+Vue.use(GridInstaller)
+Vue.use(DropdownsInstaller)
+Vue.use(DataSourceInstaller);
+Vue.component('Grid', Grid)
 // Card
 import Card from '@/components/Card.vue'
 Vue.component('Card', Card)
