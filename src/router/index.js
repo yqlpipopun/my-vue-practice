@@ -38,6 +38,11 @@ const routes = [
             name: 'v-model',
             component: () => import('@/lessons/Vmodel.vue')
           },
+          {
+            path: 'table',
+            name: 'Table',
+            component: () => import('@/lessons/Table.vue')
+          }
         ]
       },
     ]

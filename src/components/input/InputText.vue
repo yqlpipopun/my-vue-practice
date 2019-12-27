@@ -4,16 +4,15 @@
         <input
             class="inputGroup__input"
             :value="value"
-            @keydown="handleArrowUp($event)"
             @input="$emit('input', $event.target.value)"
         />
     </label>
 </template>
 <script>
-import { handleArrowMixin } from '@/components/Nav/arrowUp.js'
-import { widthMixins } from './_inputMixins'
+// import { handleArrowMixin } from '@/components/Nav/arrowUp.js'
+// import { widthMixins } from './_inputMixins'
 export default {
-    mixins: [handleArrowMixin, widthMixins],
+    // mixins: [handleArrowMixin, widthMixins],
     props: {
         name: {
             type: String,
