@@ -5,6 +5,27 @@
                 <DialogTable v-model="stock" :table="symbolsList" :name="'Searcher：基金代碼'"></DialogTable>
             </InputSearcher>
         </Row>
+        <Row>
+            <TableAddable v-model="fakeTable">
+                <template v-slot:default="{row}">
+                    {{row}}
+                    <!-- <ContainerOptional>
+                        <InputText :name="'申購'"></InputText>
+                        <InputText :name="'單位面額'"></InputText>
+                        <InputText :name="'Nav小數位數'"></InputText>
+                        <InputText :name="'Nav小數位數'"></InputText>
+                        <InputText :name="'Nav小數位數'"></InputText>
+                    </ContainerOptional>
+                    <ContainerOptional>
+                        <InputText :name="'申購'"></InputText>
+                        <InputText :name="'單位面額'"></InputText>
+                        <InputText :name="'Nav小數位數'"></InputText>
+                        <InputText :name="'Nav小數位數'"></InputText>
+                        <InputText :name="'Nav小數位數'"></InputText>
+                    </ContainerOptional>-->
+                </template>
+            </TableAddable>
+        </Row>
         <Row>選擇股票代號： {{stockSymbol}}</Row>
         <Row>
             <ButtonWFP @click="submitSymbol()">Submit</ButtonWFP>
@@ -51,10 +72,29 @@ export default {
         keyMetricsRes: [],
         stock: {},
         symbolsList: [],
+        fakeTable: [
+            {
+                'A': 'A',
+                'B': 'B',
+                'C': 'C',
+                'D': 'D',
+            },
+            {
+                'A': 'A',
+                'B': 'B',
+                'C': 'C',
+                'D': 'D',
+            },
+            {
+                'A': 'A',
+                'B': 'B',
+                'C': 'C',
+                'D': 'D',
+            },
+        ],
     }),
     methods: {
         async submitSymbol() {
-            // const response = await this.getBatchRequest(['AAPL', 'AMZN', 'FB', 'GOOG',])
             const response = await this.getKeyMetrics({
                 symbol: this.stockSymbol,
                 period: 'quarter'

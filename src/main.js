@@ -19,9 +19,16 @@ import CardLogo from '@/components/CardLogo.vue'
 Vue.component('CardLogo', CardLogo)
 import ThemeGrid from '@/components/ThemeGrid.vue'
 Vue.component('ThemeGrid', ThemeGrid)
+// Table
+import TableAddable from '@/components/TableAddable/index.vue'
+Vue.component('TableAddable', TableAddable)
+import RowEditable from '@/components/TableAddable/RowEditable.vue'
+Vue.component('RowEditable', RowEditable)
 // Inputs
 import InputEnName from '@/components/input/InputEnName.vue'
 Vue.component('InputEnName', InputEnName)
+import InputText from '@/components/input/InputText.vue'
+Vue.component('InputText', InputText)
 import InputSearcher from '@/components/input/InputSearcher/index.vue'
 Vue.component('InputSearcher', InputSearcher)
 import DialogTable from '@/components/DialogTable.vue'
@@ -39,6 +46,8 @@ import ButtonWFP from '@/components/ButtonWFP.vue'
 Vue.component('ButtonWFP', ButtonWFP)
 import RowControl from '@/components/RowControl.vue'
 Vue.component('RowControl', RowControl)
+import ContainerOptional from '@/components/ContainerOptional.vue'
+Vue.component('ContainerOptional', ContainerOptional)
 // Bootstrap
 import 'bootstrap'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
