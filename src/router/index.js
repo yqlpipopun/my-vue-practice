@@ -38,6 +38,11 @@ const routes = [
             name: 'v-model',
             component: () => import('@/lessons/Vmodel.vue')
           },
+          {
+            path: 'group-by',
+            name: 'Group By',
+            component: () => import('@/lessons/GroupBy.vue')
+          }
         ]
       },
     ]

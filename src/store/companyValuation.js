@@ -4,6 +4,7 @@ import requestSync from './_vuexApi'
 
 const types = createTypes([
     "getKeyMetrics",
+    "getRating"
 ])
 
 const state = {
@@ -25,6 +26,11 @@ const actions = {
             url
         })
     },
+    getRating: async (store, symbol) => {
+        return await requestSync(store, types.getRating, {
+            url: `company/rating/${symbol}`
+        })
+    }
 }
 
 const mutations = {
